@@ -240,3 +240,30 @@ ES_t LCD_enuDisplayString(u8 Copy_au8Data[])
 
 }
 
+ES_t LCD_MOVE_CURSOR(u8 row , u8 column)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+
+
+
+	u8 data = 0x80;
+	if(row>2||row<1||column>16||column<1)
+	{
+		data=0x80;                       //Upper Left Location on Screen
+	}
+	else if(row==1)
+	{
+		data=0x80+column-1 ;
+	}
+	else if (row==2)
+	{
+		data=0xc0+column-1;
+	}
+
+	LCD_invidSendCommend(data);
+	_delay_ms(1);
+
+	return Local_enuErrorState;
+}
+

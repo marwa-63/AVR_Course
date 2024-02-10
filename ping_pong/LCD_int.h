@@ -18,5 +18,7 @@ ES_t LCD_enuDisplayIntegerNum(s32 Copy_s32Num);
 
 ES_t LCD_enuSendCommand(u8 Copy_u8Command);
 
+ES_t LCD_MOVE_CURSOR(u8 row , u8 column);
+
 
 #endif /* LCD_INT_H_ */
